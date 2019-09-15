@@ -1,0 +1,22 @@
+<aura:component controller="testaura" implements="flexipage:availableForAllPageTypes" access="global" >
+    Job Application Details
+	<!--<aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="locationresponse" type="string" default="" />
+    <aura:attribute name="Location"  type="string[]" default="{!v.Job_Application__c.location__c}" />
+    <lightning:select label="Location" name="locationselect" value= "{!v.locationresponse}">
+                
+    <option value="{!v.Job_Application__c.location__c}" text="{!v.Job_Application__c.location__c}"
+            />
+  
+    
+    </lightning:select><force:inputField value="{!v.job_application__c.Location__c}"/> -->
+          <aura:attribute name="options" type="List" 
+   default="['New','In Progress','Resolved','Closed']"/>
+<aura:attribute name="ltngSelectedvalue" type="string" default="New"/>
+<lightning:select name="cStat" label="Case Status" 
+ value="{!v.ltngSelectedvalue}" aura:id="statusPicklist" >
+    <aura:iteration items="{!v.options}" var="opt">
+  <option value="{!opt}">{!opt}</option>
+    </aura:iteration>
+</lightning:select>            
+                       </aura:component>

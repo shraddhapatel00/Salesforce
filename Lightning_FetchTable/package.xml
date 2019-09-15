@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Package xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Lightning_FetchTable</fullName>
+    <description>Lightning component assignment</description>
+    <types>
+        <members>testaura</members>
+        <members>testlist</members>
+        <name>ApexClass</name>
+    </types>
+    <types>
+        <members>JobApplicationlist</members>
+        <members>TestComp</members>
+        <members>testApp</members>
+        <name>AuraDefinitionBundle</name>
+    </types>
+    <types>
+        <members>Job_Application__c.Location__c</members>
+        <members>Job_Application__c.No_of_Selected__c</members>
+        <members>Job_Application__c.No_of_applied__c</members>
+        <members>Job_Application__c.Position_name__c</members>
+        <members>Job_Application__c.Year__c</members>
+        <name>CustomField</name>
+    </types>
+    <types>
+        <members>Job_Application__c</members>
+        <name>CustomObject</name>
+    </types>
+    <types>
+        <members>Job_Application__c-Job Application Layout</members>
+        <name>Layout</name>
+    </types>
+    <types>
+        <members>Job_Application__c.All</members>
+        <name>ListView</name>
+    </types>
+    <version>45.0</version>
+</Package>

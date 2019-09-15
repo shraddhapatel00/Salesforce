@@ -1,0 +1,71 @@
+<aura:component controller="testaura"  implements="flexipage:availableForAllPageTypes" access="global" >
+    <div class="slds-align_absolute-center" >
+        Job Application List</div>
+    <aura:attribute name="locationlist" type="list" default=" " />
+    <aura:attribute name="positionlist" type="list" />
+    <aura:attribute name="posname" type="string" />
+    <aura:attribute name="sumapp" type="integer" />
+    <aura:attribute name="sumsel" type="integer" />
+    <aura:attribute name="details" type="list" />
+    <aura:handler name="init" value="{!this}" action="{!c.doInit}" />
+    <aura:attribute name="myselect1" type="string" default=""/>
+    <aura:attribute name="myselect2" type="string" default=""/>
+    <div class="slds-size--3-of-8"> 
+        
+        <lightning:select name="myselect1" label="Location"  aura:id="myselect1" value="myselect1" onchange="{!c.toggle}" >
+            <option value="">...Select a Location...</option>
+            <aura:iteration items="{!v.locationlist}" var="opt">
+                <option value="{!opt.Location__c}">{!opt.Location__c}</option>
+            </aura:iteration>
+        </lightning:select>
+        
+        
+        <lightning:select name="myselect2" label="Position Name"  aura:id="myselect2" value="myselect2" onchange="{!c.toggle}" >
+            <option value="">...Select a Position...</option><aura:iteration items="{!v.positionlist}" var="opt" >
+                <option value="{!opt.Position_name__c}" >{!opt.Position_name__c}</option>
+            </aura:iteration>
+        </lightning:select>
+        <br/><br/>
+        
+        <table class="slds-table slds-table--bordered slds-table--striped">
+            
+            <thead>
+                <tr> 
+                    <th scope="col"><span class="slds-truncate">Position Name</span></th>
+                    <th scope="col">
+                        
+                        <span class="slds-truncate">{!v.posname}</span>
+                    </th>
+                </tr>
+                
+            </thead>
+            <tbody>
+                
+                <tr> 
+                    <td> Year</td> 
+                    <aura:iteration items="{!v.details}" var="result">
+                        <td>{!result.Year__c}</td>
+                    </aura:iteration>
+                    <tr>
+                        <th>Total</th>
+                    </tr>
+                </tr>
+                <tr>
+                    <td>Applied</td>
+                    <aura:iteration items="{!v.details}" var="result">
+                        <td>{!result.No_of_applied__c}</td>
+                    </aura:iteration>
+                    <td> {!v.sumapp}</td>
+                </tr>
+                <tr>
+                    <td>Approved</td>
+                    <aura:iteration items="{!v.details}" var="result">
+                        <td>{!result.No_of_Selected__c}</td>
+                    </aura:iteration><td> {!v.sumsel} </td>
+                </tr>
+                
+            </tbody> 
+            
+        </table>
+    </div>
+</aura:component>
